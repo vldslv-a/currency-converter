@@ -1,0 +1,25 @@
+.header {
+  height: 200px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-size: 24px;
+}
+
+.contentContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.converterContainer {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  width: 400px;
+  margin-top: -50px;
+  background-color: var(--color-white);
+  padding: 36px 30px;
+}
