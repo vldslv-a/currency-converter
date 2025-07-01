@@ -7,7 +7,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test  --watchAll --testMatch '**/src/**/spec.{ts,tsx}'",
     "eject": "react-scripts eject",
-    "api": "nodemon server.js --quiet",
+    "api": "nodemon server/server.js --quiet",
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write ."
   },

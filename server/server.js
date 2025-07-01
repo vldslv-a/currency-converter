@@ -1,20 +1,21 @@
 require('colors');
 const jsonServer = require('json-server');
+
 const server = jsonServer.create();
-const router = jsonServer.router('db.json');
+const router = jsonServer.router('./server/db.json');
 const middlewares = jsonServer.defaults();
 
 server.use(middlewares);
 
 server.get('/convert', (req, res) => {
-  const { from, to, amount } = req.query;
+  const { amount, from, to } = req.query;
 
   if (!from) console.error('❌ No "from" value provided');
   if (!to) console.error('❌ No "to" value provided');
   if (!amount) console.error('❌ No "amount" value provided');
 
-  const sanitisedFrom = from && from.toUpperCase();
-  const sanitisedTo = to && to.toUpperCase();
+  const sanitisedFrom = from?.toUpperCase();
+  const sanitisedTo = to?.toUpperCase();
   const sanitisedAmount = amount && parseInt(amount);
 
   const rates = router.db.getState().rates;
@@ -22,7 +23,7 @@ server.get('/convert', (req, res) => {
   const fromRate = rates.find((rate) => rate.base === sanitisedFrom);
   if (!fromRate) console.error(`⚠️  Could not find currency: ${sanitisedFrom}`);
 
-  const toRate = fromRate && fromRate.rates[sanitisedTo];
+  const toRate = fromRate?.rates[sanitisedTo];
 
   res.jsonp({
     from: sanitisedFrom,
@@ -35,7 +36,7 @@ server.get('/convert', (req, res) => {
 server.get('/rates/:currencyCode', (req, res) => {
   const { currencyCode } = req.params;
 
-  const sanitisedCurrencyCode = currencyCode && currencyCode.toUpperCase();
+  const sanitisedCurrencyCode = currencyCode?.toUpperCase();
   const rates = router.db.getState().rates;
   const currencyWithRates = rates.find((rate) => rate.base === sanitisedCurrencyCode);
 
@@ -59,6 +60,6 @@ const app = server.listen(3002, () => {
     `\n  http://localhost:${app.address().port}/currencies`,
     `\n  http://localhost:${app.address().port}/rates\n`,
     '\n  Home'.bold,
-    `\n  http://localhost:${app.address().port}\n`,
+    `\n  http://localhost:${app.address().port}\n`
   );
 });
