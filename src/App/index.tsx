@@ -1,33 +1,39 @@
-import { useState } from 'react';
-import Input from '../components/Input';
+import { useCallback, useState } from 'react';
+import { Button } from 'components/Button';
+import { Input } from 'components/Input';
+import { Layout } from 'components/Layout';
 import styles from './App.module.scss';
 
-function App() {
+export const App = () => {
   const [amount, setAmount] = useState('');
   const [fromCurrency, setFromCurrency] = useState('');
   const [toCurrency, setToCurrency] = useState('');
   const [convertedAmount, setConvertedAmount] = useState('');
 
-  const convertAmount = async () => {
+  const convertAmount = useCallback(() => {
+    // eslint-disable-next-line no-console
     console.log('Implement conversion here');
-  };
+
+    setConvertedAmount('');
+  }, []);
 
   return (
-    <div>
-      <header className={styles.header}>
-        <p>Currency Converter</p>
-      </header>
+    <Layout>
       <div className={styles.contentContainer}>
         <div className={styles.converterContainer}>
-          <Input label="Amount" onChange={(value) => setAmount(value)} value={amount} />
-          <Input label="From Currency" onChange={(value) => setFromCurrency(value)} value={fromCurrency} />
-          <Input label="To Currency" onChange={(value) => setToCurrency(value)} value={toCurrency} />
-          <button onClick={convertAmount}>Convert</button>
+          <Input id="amount" label="Amount" onChange={setAmount} value={amount} />
+
+          <div className={styles.currencyInputsContainer}>
+            <Input id="fromCurrency" label="From Currency" onChange={setFromCurrency} value={fromCurrency} />
+
+            <Input id="toCurrency" label="To Currency" onChange={setToCurrency} value={toCurrency} />
+          </div>
+
+          <Button onClick={convertAmount} label="Convert" />
+
           <span>{convertedAmount}</span>
         </div>
       </div>
-    </div>
+    </Layout>
   );
-}
-
-export default App;
+};

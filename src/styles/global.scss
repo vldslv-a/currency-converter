@@ -1,0 +1,20 @@
+:root {
+  --color-white: #fff;
+  --color-primary: #007bff;
+  --color-primary-light: #66b3ff;
+  --color-primary-dark: #0056b3;
+  --color-black: #000;
+  --color-gray: #b8b8b8;
+  --color-gray-light: #f0f0f0;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

@@ -6,4 +6,19 @@
   border: 0;
   color: var(--color-white);
   font-weight: 500;
+  transition: background-color 0.4s ease;
+
+  &:disabled {
+    background-color: rgba(0, 123, 255, 0.5);
+    cursor: not-allowed;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--color-primary-dark);
+  }
+
+  &:active {
+    background-color: var(--color-primary-light);
+  }
 }

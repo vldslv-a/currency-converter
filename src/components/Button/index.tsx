@@ -7,12 +7,10 @@ type Props = {
   isDisabled?: boolean;
 };
 
-const Button: React.FC<Props> = ({ label, onClick, isDisabled }) => {
+export const Button: React.FC<Props> = ({ isDisabled, label, onClick }) => {
   return (
     <button className={styles.button} onClick={onClick} disabled={isDisabled}>
       {label}
     </button>
   );
 };
-
-export default Button;

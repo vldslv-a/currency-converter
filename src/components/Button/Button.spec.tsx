@@ -1,6 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-
-import Button from './';
+import { Button } from '.';
 
 describe('<Button />', () => {
   const label = 'Hello World!';
@@ -25,17 +24,17 @@ describe('<Button />', () => {
     expect(button).toBeDisabled();
   });
 
-  it('handles onClick when appropriate', async () => {
+  it('handles onClick when appropriate', () => {
     const { rerender } = render(<Button {...props} isDisabled />);
 
     const button = screen.getByRole('button');
 
-    await fireEvent.click(button);
+    fireEvent.click(button);
     expect(mockOnClick).toHaveBeenCalledTimes(0);
 
     rerender(<Button {...props} isDisabled={false} />);
 
-    await fireEvent.click(button);
+    fireEvent.click(button);
     expect(mockOnClick).toHaveBeenCalledTimes(1);
   });
 });

@@ -11,9 +11,7 @@ export enum Currencies {
 
 export type CurrencyCodes = keyof typeof Currencies;
 
-export type RatesForCurrency = {
-  [key in CurrencyCodes]: number;
-};
+export type RatesForCurrency = Record<CurrencyCodes, number>;
 
 export type Rate = {
   base: keyof typeof Currencies;

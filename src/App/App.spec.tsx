@@ -1,6 +1,6 @@
-import { render, screen } from '@testing-library/react';
-
-import App from './';
+import { screen } from '@testing-library/react';
+import { render } from 'test/testUtils';
+import { App } from '.';
 
 describe('<App />', () => {
   it('renders correctly', () => {
