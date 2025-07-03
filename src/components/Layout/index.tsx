@@ -1,10 +1,11 @@
 import { Header } from './Header';
-import type { PropsWithChildren } from 'react';
+import { Main } from './Main';
+import type { FC, PropsWithChildren } from 'react';
 
-export const Layout: React.FC<PropsWithChildren<{}>> = ({ children }) => (
+export const Layout: FC<PropsWithChildren<{}>> = ({ children }) => (
   <div>
     <Header />
 
-    {children}
+    <Main>{children}</Main>
   </div>
 );

@@ -1,5 +1,5 @@
-import React from 'react';
 import styles from './Button.module.scss';
+import type { FC } from 'react';
 
 type Props = {
   label: string;
@@ -7,7 +7,7 @@ type Props = {
   isDisabled?: boolean;
 };
 
-export const Button: React.FC<Props> = ({ isDisabled, label, onClick }) => {
+export const Button: FC<Props> = ({ isDisabled, label, onClick }) => {
   return (
     <button className={styles.button} onClick={onClick} disabled={isDisabled}>
       {label}

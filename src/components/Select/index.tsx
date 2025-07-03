@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import styles from './Select.module.scss';
 import type { ChangeEvent, DetailedHTMLProps, SelectHTMLAttributes } from 'react';
 

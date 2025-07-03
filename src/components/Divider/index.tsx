@@ -1,8 +1,7 @@
-import React from 'react';
 import styles from './Divider.module.scss';
-import type { PropsWithChildren } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 
-export const Divider: React.FC<PropsWithChildren<{}>> = ({ children }) => {
+export const Divider: FC<PropsWithChildren<{}>> = ({ children }) => {
   if (children != null) {
     return (
       <div className={`${styles.divider} ${styles.withText}`}>
