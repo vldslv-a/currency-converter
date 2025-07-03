@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 import { Button } from 'components/Button';
 import { Input } from 'components/Input';
+import { ConversionResult } from './ConversionResult';
 import styles from './CurrencyConverter.module.scss';
 
 export const CurrencyConverter = () => {
@@ -28,7 +29,7 @@ export const CurrencyConverter = () => {
 
       <Button onClick={convertAmount} label="Convert" />
 
-      <span>{convertedAmount}</span>
+      {convertedAmount && <ConversionResult>{convertedAmount}</ConversionResult>}
     </div>
   );
 };
