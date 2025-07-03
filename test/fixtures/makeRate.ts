@@ -5,4 +5,9 @@ import type { Rate } from 'api/types';
 export const makeRate = makeEntity<Rate>(() => ({
   base: 'EUR',
   rates: makeRatesForCurrency(),
+  currency: {
+    flag: '🇪flag',
+    name: 'Euro',
+    symbol: '€',
+  },
 }));

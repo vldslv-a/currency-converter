@@ -1,5 +1,5 @@
 import axios, { isCancel } from 'axios';
-import type { AxiosError } from 'axios';
+import type { AxiosError, AxiosResponse } from 'axios';
 
 export type ApiErrorResponse = {
   message?: string;
@@ -29,8 +29,8 @@ export const client = axios.create({
 });
 
 client.interceptors.response.use(
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-  (response) => (response.config.responseType === 'blob' ? response : response.data),
+  <T>(response: AxiosResponse<T>): AxiosResponse<T> | T =>
+    response.config.responseType === 'blob' ? response : response.data,
   async (error: AxiosError<ApiErrorResponse>) => {
     if (error.response?.status !== undefined) {
       if (error.response.data instanceof Blob) {
