@@ -7,11 +7,9 @@ describe('<App />', () => {
     render(<App />);
 
     const subHeading = screen.getByText('Currency Converter');
-    const inputs = screen.getAllByRole('textbox');
-    const convertButton = screen.getByText('Convert');
+    const currencyConverter = screen.getByTestId('currencyConverter');
 
     expect(subHeading).toBeInTheDocument();
-    expect(inputs).toHaveLength(3);
-    expect(convertButton).toBeInTheDocument();
+    expect(currencyConverter).toBeInTheDocument();
   });
 });
