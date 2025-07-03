@@ -56,6 +56,7 @@ const config = [
       },
     },
   },
+  ...tseslint.configs.recommended,
   ...tseslint.configs.strictTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
   {

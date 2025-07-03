@@ -13,8 +13,15 @@ export type CurrencyCodes = keyof typeof Currencies;
 
 export type RatesForCurrency = Record<CurrencyCodes, number>;
 
+type Currency = {
+  flag: string;
+  name: string;
+  symbol: string;
+};
+
 export type Rate = {
   base: keyof typeof Currencies;
+  currency: Currency;
   rates: RatesForCurrency;
 };
 
